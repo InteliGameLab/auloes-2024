@@ -1,4 +1,5 @@
 import Nivel1 from "./cenas/nivel-1/nivel1.js";
+import Nivel2 from "./cenas/nivel-2/nivel2.js";
 
 var config = {
     type: Phaser.AUTO,
@@ -14,7 +15,7 @@ var config = {
             debug: true
         }
     },
-    scene: Nivel1
+    scene: [Nivel1, Nivel2]
 };
 
 
