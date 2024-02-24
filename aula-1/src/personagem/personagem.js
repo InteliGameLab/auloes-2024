@@ -31,7 +31,7 @@ export const animacaoPersonagem = (scene) => {
         key: 'personagem_idle',
         frames: scene.anims.generateFrameNumbers('personagem_idle', {
             start: 0,
-            end: 11 
+            end: 10 
         }),
         frameRate: 10,
         repeat: -1
@@ -41,7 +41,7 @@ export const animacaoPersonagem = (scene) => {
         key: 'personagem_andando',
         frames: scene.anims.generateFrameNumbers('personagem_andando', {
             start: 0,
-            end: 12 
+            end: 11 
         }),
         frameRate: 10,
         repeat: -1

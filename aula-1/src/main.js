@@ -1,28 +1,4 @@
-import { criarPersonagem, spritesPersonagem } from "./personagem/main.js";
-
-console.log("oi")
-
-class Demo extends Phaser.Scene {
-    personagem;
-
-    constructor() {
-        super('Demo');
-    };
-
-    preload() {
-        this.load.image('sky','./assets/Background/Blue.png');
-        spritesPersonagem(this);
-    };
-
-    create() {
-        this.add.image(400,200,'sky');
-        this.personagem = criarPersonagem(this);
-        this.personagem.anims.play('personagem_idle', true);
-    }
-
-    update() {
-    };
-}
+import Nivel1 from "./cenas/nivel-1/nivel1.js";
 
 var config = {
     type: Phaser.AUTO,
@@ -34,11 +10,11 @@ var config = {
     physics: {
         default: 'arcade',
         arcade: {
-            gravity: { y: 0 },
+            gravity: { y: 300 },
             debug: true
         }
     },
-    scene: Demo
+    scene: Nivel1
 };
 
 
