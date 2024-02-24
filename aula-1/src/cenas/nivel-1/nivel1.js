@@ -1,7 +1,9 @@
 import { criarPersonagem, spritesPersonagem } from "../../personagem/personagem.js";
+import { configurarControles, criarControles } from "../../personagem/controles.js";
 
 export default class Nivel1 extends Phaser.Scene {
     personagem;
+    controles;
     chao;
 
     preload() {
@@ -26,5 +28,11 @@ export default class Nivel1 extends Phaser.Scene {
         this.chao.setCollisionByProperty({ collider: true });
 
         this.physics.add.collider(this.personagem, this.chao);
+
+        this.controles = criarControles(this);
+    }
+
+    update() {
+        configurarControles(this.controles, this.personagem, this);
     }
 }
