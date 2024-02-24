@@ -201,61 +201,6 @@
          "spacing":0,
          "tilecount":55,
          "tileheight":16,
-         "tiles":[
-                {
-                 "id":40,
-                 "properties":[
-                        {
-                         "name":"transicao",
-                         "type":"bool",
-                         "value":true
-                        }]
-                }, 
-                {
-                 "id":41,
-                 "properties":[
-                        {
-                         "name":"transicao",
-                         "type":"bool",
-                         "value":true
-                        }]
-                }, 
-                {
-                 "id":42,
-                 "properties":[
-                        {
-                         "name":"transicao",
-                         "type":"bool",
-                         "value":true
-                        }]
-                }, 
-                {
-                 "id":45,
-                 "properties":[
-                        {
-                         "name":"transicao",
-                         "type":"bool",
-                         "value":true
-                        }]
-                }, 
-                {
-                 "id":46,
-                 "properties":[
-                        {
-                         "name":"transicao",
-                         "type":"bool",
-                         "value":true
-                        }]
-                }, 
-                {
-                 "id":47,
-                 "properties":[
-                        {
-                         "name":"transicao",
-                         "type":"bool",
-                         "value":true
-                        }]
-                }],
          "tilewidth":16
         }, 
         {
