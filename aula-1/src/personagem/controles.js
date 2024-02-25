@@ -2,11 +2,11 @@ export function criarControles(scene) {
     return scene.input.keyboard.createCursorKeys();
 };
 
-export function adicionaTecla(tecla) {
+export function adicionaTecla(scene, tecla) {
     return scene.input.keyboard.addKey(tecla);
 };
 
-export function movimentar(controles, personagem, scene) {
+export function movimentar(controles, personagem) {
 
     if (controles.up.isDown && personagem.body.onFloor()) {
         pular(personagem);

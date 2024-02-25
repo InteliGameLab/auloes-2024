@@ -138,8 +138,8 @@
                  "properties":[
                         {
                          "name":"colisor",
-                         "type":"string",
-                         "value":"true"
+                         "type":"bool",
+                         "value": true
                         }]
                 }, 
                 {
@@ -147,8 +147,8 @@
                  "properties":[
                         {
                          "name":"colisor",
-                         "type":"string",
-                         "value":"true"
+                         "type":"bool",
+                         "value": true
                         }]
                 }, 
                 {
@@ -156,8 +156,8 @@
                  "properties":[
                         {
                          "name":"colisor",
-                         "type":"string",
-                         "value":"true"
+                         "type":"bool",
+                         "value": true
                         }]
                 }, 
                 {
@@ -165,8 +165,8 @@
                  "properties":[
                         {
                          "name":"colisor",
-                         "type":"string",
-                         "value":"true"
+                         "type":"bool",
+                         "value": true
                         }]
                 }, 
                 {
@@ -174,8 +174,8 @@
                  "properties":[
                         {
                          "name":"colisor",
-                         "type":"string",
-                         "value":"true"
+                         "type":"bool",
+                         "value": true
                         }]
                 }, 
                 {
@@ -183,8 +183,8 @@
                  "properties":[
                         {
                          "name":"colisor",
-                         "type":"string",
-                         "value":"true"
+                         "type":"bool",
+                         "value": true
                         }]
                 }, 
                 {
@@ -192,8 +192,8 @@
                  "properties":[
                         {
                          "name":"colisor",
-                         "type":"string",
-                         "value":"true"
+                         "type":"bool",
+                         "value": true
                         }]
                 }, 
                 {
@@ -201,8 +201,8 @@
                  "properties":[
                         {
                          "name":"colisor",
-                         "type":"string",
-                         "value":"true"
+                         "type":"bool",
+                         "value": true
                         }]
                 }, 
                 {
@@ -210,8 +210,8 @@
                  "properties":[
                         {
                          "name":"colisor",
-                         "type":"string",
-                         "value":"true"
+                         "type":"bool",
+                         "value": true
                         }]
                 }, 
                 {
@@ -219,8 +219,8 @@
                  "properties":[
                         {
                          "name":"colisor",
-                         "type":"string",
-                         "value":"true"
+                         "type":"bool",
+                         "value": true
                         }]
                 }, 
                 {
@@ -228,8 +228,8 @@
                  "properties":[
                         {
                          "name":"colisor",
-                         "type":"string",
-                         "value":"true"
+                         "type":"bool",
+                         "value": true
                         }]
                 }, 
                 {
@@ -237,8 +237,8 @@
                  "properties":[
                         {
                          "name":"colisor",
-                         "type":"string",
-                         "value":"true"
+                         "type":"bool",
+                         "value": true
                         }]
                 }, 
                 {
@@ -246,8 +246,8 @@
                  "properties":[
                         {
                          "name":"colisor",
-                         "type":"string",
-                         "value":"true"
+                         "type":"bool",
+                         "value": true
                         }]
                 }, 
                 {
@@ -255,8 +255,8 @@
                  "properties":[
                         {
                          "name":"colisor",
-                         "type":"string",
-                         "value":"true"
+                         "type":"bool",
+                         "value": true
                         }]
                 }, 
                 {
@@ -264,8 +264,8 @@
                  "properties":[
                         {
                          "name":"colisor",
-                         "type":"string",
-                         "value":"true"
+                         "type":"bool",
+                         "value": true
                         }]
                 }],
          "tilewidth":16

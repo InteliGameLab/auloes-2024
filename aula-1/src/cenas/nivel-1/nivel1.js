@@ -1,4 +1,4 @@
-import { criarPersonagem, spritesPersonagem } from "../../personagem/personagem.js";
+import { criarPersonagem, criarAnimacoesPersonagem, spritesPersonagem } from "../../personagem/personagem.js";
 import { movimentar, criarControles, adicionaTecla } from "../../personagem/controles.js";
 
 export default class Nivel1 extends Phaser.Scene {
@@ -28,9 +28,11 @@ export default class Nivel1 extends Phaser.Scene {
 
         const ceu = mapa.createLayer("ceu", tilesetCeu, 0, 0);
         this.chao = mapa.createLayer("chao", tilesetTerreno, 0, 0);
-        this.porta = mapa.createLayer("porta", tilesetPorta, 0, 0)
+        this.porta = mapa.createLayer("porta", tilesetPorta, 0, 0);
 
         this.personagem = criarPersonagem(this);
+        criarAnimacoesPersonagem(this);
+
         this.personagem.anims.play('personagem_idle', true);
 
         this.chao.setCollisionByProperty({ colisor: true });
@@ -39,10 +41,10 @@ export default class Nivel1 extends Phaser.Scene {
 
         this.controles = criarControles(this);
 
-        const espaco = adicionaTecla(Phaser.Input.Keyboard.KeyCodes.SPACE);
+        const espaco = adicionaTecla(this, Phaser.Input.Keyboard.KeyCodes.SPACE);
 
-        espaco.on("down", this.entrar);
-        
+        espaco.on("down", this.entrar, this);
+
         this.cameras.main.setBounds(0, 0, mapa.widthInPixels, mapa.heightInPixels, true, true, true, true);
         this.physics.world.setBounds(0, 0, mapa.widthInPixels, mapa.heightInPixels, true, true, true, true);
         this.cameras.main.startFollow(this.personagem, true, 0.05, 0.05);
@@ -51,14 +53,12 @@ export default class Nivel1 extends Phaser.Scene {
     }
 
     update() {
-        movimentar(this.controles, this.personagem, this);
+        movimentar(this.controles, this.personagem);
     }
 
     entrar() {
         if (this.porta.hasTileAtWorldXY(this.personagem.body.position.x, this.personagem.body.position.y)) {
-            this.scene.transition({ target: "Nivel2", duration: 2000})
+            this.scene.transition({ target: "Nivel2"});
         }
     }
-    // TODO: adicionar interação entre personagem e porta. É possível verificar se existe um tile na camada da porta na posição do
-    // personagem com this.porta.hasTileAtWorldXY(personagem.x, personagem.y)
 }

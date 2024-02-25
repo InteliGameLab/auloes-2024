@@ -1,8 +1,7 @@
 export function criarPersonagem(scene) {
-    const personagem = scene.physics.add.sprite(700, 200, 'personagem_idle');
+    const personagem = scene.physics.add.sprite(100, 450, 'personagem_idle');
     personagem.setScale(1.7);
     personagem.setCollideWorldBounds(true);
-    animacaoPersonagem(scene);
     return personagem;
 }
 
@@ -28,7 +27,7 @@ export function spritesPersonagem(scene) {
     });
 }
 
-export function animacaoPersonagem(scene) {
+export function criarAnimacoesPersonagem(scene) {
     scene.anims.create({
         key: 'personagem_idle',
         frames: scene.anims.generateFrameNumbers('personagem_idle', {
