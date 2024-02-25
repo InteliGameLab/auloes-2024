@@ -6,7 +6,7 @@ export default class Nivel2 extends Phaser.Scene {
     abacaxi;
 
     constructor() {
-        super("nivel2")
+        super({ key: "Nivel2" });
     }
 
     preload() {
@@ -51,7 +51,7 @@ export default class Nivel2 extends Phaser.Scene {
         this.abacaxi.anims.play("abacaxi_idle", true);
         this.personagem.anims.play('personagem_idle', true);
 
-        this.physics.add.collider(this.personagem, this.abacaxi, this.win)
+        this.physics.add.overlap(this.personagem, this.abacaxi, this.win)
 
     }
 

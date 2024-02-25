@@ -1,11 +1,15 @@
 import { criarPersonagem, spritesPersonagem } from "../../personagem/personagem.js";
-import { configurarControles, criarControles } from "../../personagem/controles.js";
+import { movimentar, criarControles, adicionaTecla } from "../../personagem/controles.js";
 
 export default class Nivel1 extends Phaser.Scene {
     personagem;
     controles;
     chao;
     porta;
+
+    constructor() {
+        super({ key: "Nivel1" });
+    }
 
     preload() {
         this.load.image("terreno", "assets/Terrain/Terrain(16x16).png");
@@ -34,12 +38,21 @@ export default class Nivel1 extends Phaser.Scene {
         this.physics.add.collider(this.personagem, this.chao);
 
         this.controles = criarControles(this);
+
+        const espaco = adicionaTecla(Phaser.Input.Keyboard.KeyCodes.SPACE);
+
+        espaco.on("down", this.entrar);
     }
 
     update() {
-        configurarControles(this.controles, this.personagem, this);
+        movimentar(this.controles, this.personagem, this);
     }
 
+    entrar() {
+        if (this.porta.hasTileAtWorldXY(this.personagem.body.position.x, this.personagem.body.position.y)) {
+            this.scene.transition({ target: "Nivel2", duration: 2000})
+        }
+    }
     // TODO: adicionar interação entre personagem e porta. É possível verificar se existe um tile na camada da porta na posição do
     // personagem com this.porta.hasTileAtWorldXY(personagem.x, personagem.y)
 }
