@@ -1,12 +1,15 @@
 import { criarPersonagem, spritesPersonagem } from "../../personagem/personagem.js";
+import { movimentar, criarControles } from "../../personagem/controles.js";
+
 
 export default class Nivel2 extends Phaser.Scene {
     personagem;
+    controles;
     chao;
     abacaxi;
 
     constructor() {
-        super("nivel2")
+        super({ key: "Nivel2" });
     }
 
     preload() {
@@ -36,7 +39,9 @@ export default class Nivel2 extends Phaser.Scene {
 
         this.physics.add.collider(this.personagem, this.chao);
         
-        this.abacaxi = this.add.sprite(640, 400, "abacaxi");
+        this.abacaxi = this.physics.add.sprite(640, 380, "abacaxi");
+        this.abacaxi.body.setAllowGravity(false);
+        this.abacaxi.setScale(1.5, 1.5);
 
         this.anims.create({
             key: "abacaxi_idle",
@@ -51,8 +56,14 @@ export default class Nivel2 extends Phaser.Scene {
         this.abacaxi.anims.play("abacaxi_idle", true);
         this.personagem.anims.play('personagem_idle', true);
 
-        this.physics.add.collider(this.personagem, this.abacaxi, this.win)
+        this.physics.add.overlap(this.personagem, this.abacaxi, this.win, null, this)
 
+        this.controles = criarControles(this);
+
+    }
+
+    update() {
+        movimentar(this.controles, this.personagem);
     }
 
     win() {

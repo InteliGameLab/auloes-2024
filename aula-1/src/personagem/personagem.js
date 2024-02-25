@@ -1,12 +1,11 @@
-export const criarPersonagem = (scene) => {
-    const personagem = scene.physics.add.sprite(700, 200, 'personagem_idle');
+export function criarPersonagem(scene) {
+    const personagem = scene.physics.add.sprite(100, 450, 'personagem_idle');
     personagem.setScale(1.7);
     personagem.setCollideWorldBounds(true);
-    animacaoPersonagem(scene);
     return personagem;
 }
 
-export const spritesPersonagem = (scene) => {
+export function spritesPersonagem(scene) {
     scene.load.spritesheet('personagem_idle', 'assets/Main Characters/Ninja Frog/Idle (32x32).png', {
         frameWidth: 32,
         frameHeight: 32
@@ -28,7 +27,7 @@ export const spritesPersonagem = (scene) => {
     });
 }
 
-export const animacaoPersonagem = (scene) => {
+export function criarAnimacoesPersonagem(scene) {
     scene.anims.create({
         key: 'personagem_idle',
         frames: scene.anims.generateFrameNumbers('personagem_idle', {
