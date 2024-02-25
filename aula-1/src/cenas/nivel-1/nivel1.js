@@ -42,6 +42,12 @@ export default class Nivel1 extends Phaser.Scene {
         const espaco = adicionaTecla(Phaser.Input.Keyboard.KeyCodes.SPACE);
 
         espaco.on("down", this.entrar);
+        
+        this.cameras.main.setBounds(0, 0, mapa.widthInPixels, mapa.heightInPixels, true, true, true, true);
+        this.physics.world.setBounds(0, 0, mapa.widthInPixels, mapa.heightInPixels, true, true, true, true);
+        this.cameras.main.startFollow(this.personagem, true, 0.05, 0.05);
+        this.cameras.main.setZoom(1.5);
+
     }
 
     update() {

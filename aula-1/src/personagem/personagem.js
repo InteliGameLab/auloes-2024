@@ -1,6 +1,7 @@
 export function criarPersonagem(scene) {
     const personagem = scene.physics.add.sprite(700, 200, 'personagem_idle');
     personagem.setScale(1.7);
+    personagem.setCollideWorldBounds(true);
     animacaoPersonagem(scene);
     return personagem;
 }
