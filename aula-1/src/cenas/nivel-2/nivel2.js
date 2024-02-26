@@ -69,6 +69,7 @@ export default class Nivel2 extends Phaser.Scene {
         this.cameras.main.setBounds(0, 0, this.mapa.widthInPixels, this.mapa.heightInPixels, true, true, true, true);
         this.cameras.main.startFollow(this.personagem, true, 0.05, 0.05);
         this.cameras.main.setZoom(1.5);
+        this.cameras.main.fadeIn(1000, 0, 0, 0); // Fade in da próxima cena durante 1 segundo (1000 milissegundos)
     }
 
 
@@ -79,5 +80,16 @@ export default class Nivel2 extends Phaser.Scene {
 
     win() {
         this.abacaxi.destroy()
+        this.add.text(this.game.renderer.width / 2 - 110, this.game.renderer.height * 0.20, 'Parabéns!',
+         { fontFamily: 'Roboto', fontSize: '64px', fill: '#000000' })
+         this.time.delayedCall(5000, this.voltarAoMenu, [], this);
+    }
+
+
+    voltarAoMenu() {
+        this.cameras.main.fadeOut(1000, 0, 0, 0); // Fade out da cena atual durante 1 segundo (1000 milissegundos)
+            this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
+                this.scene.transition({ target: "Menu"});
+            });
     }
 }

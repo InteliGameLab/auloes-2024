@@ -48,8 +48,7 @@ export default class Menu extends Phaser.Scene {
         botaoNivel.on("pointerup", () =>{
             this.cameras.main.fadeOut(1000, 0, 0, 0); // Fade out da cena atual durante 1 segundo (1000 milissegundos)
             this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
-                this.scene.start('Nivel'); // Inicia a próxima cena após o fade out
-                this.cameras.main.fadeIn(1000, 0, 0, 0); // Fade in da próxima cena durante 1 segundo (1000 milissegundos)
+                this.scene.start('SelecionaNivel'); // Inicia a próxima cena após o fade out
             });
         })
         
