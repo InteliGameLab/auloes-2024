@@ -15,3 +15,8 @@ let maskDude = new ModeloPersonagem("Mask Dude", "maskDude.png", "Olá, eu sou o
 
 // Imprime no console a descrição do segundo personagem
 maskDude.mostrarDescricao();
+
+
+
+
+// Disclaimer: o código acima é um exemplo de como o código seria utilizado no Phaser, mas não é funcional caso vocês tentem rodar pelo terminal com node.
