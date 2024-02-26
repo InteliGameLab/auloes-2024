@@ -31,6 +31,8 @@ export default class Nivel2 extends Phaser.Scene {
 
         this.criarPersonagem();
 
+        this.configurarCamera();
+        
         this.criarAbacaxi();
     }
 
@@ -64,11 +66,18 @@ export default class Nivel2 extends Phaser.Scene {
     }
 
 
+    configurarCamera() {
+        this.cameras.main.setBounds(0, 0, this.mapa.widthInPixels, this.mapa.heightInPixels, true, true, true, true);
+        this.cameras.main.startFollow(this.personagem, true, 0.05, 0.05);
+        this.cameras.main.setZoom(1.5);
+    }
+
+
     update() {
         this.personagem.movimentar();
     }
 
-    
+
     win() {
         this.abacaxi.destroy()
     }
