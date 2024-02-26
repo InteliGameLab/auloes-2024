@@ -17,14 +17,10 @@ export default class Nivel1 extends Phaser.Scene {
         this.load.image("transicao", "assets/Other/Objects.png")
         this.load.image("fundo", "assets/Background/Yellow.png");
         this.load.tilemapTiledJSON("mapa1", "assets/mapa1.json");
-
-        carregarSpritesPersonagem(this);
     }
 
 
     create() {
-        criarAnimacoesPersonagem(this);
-
         this.criarMapa();
         
         this.criarPersonagem();
@@ -63,6 +59,7 @@ export default class Nivel1 extends Phaser.Scene {
         this.cameras.main.setBounds(0, 0, this.mapa.widthInPixels, this.mapa.heightInPixels, true, true, true, true);
         this.cameras.main.startFollow(this.personagem, true, 0.05, 0.05);
         this.cameras.main.setZoom(1.5);
+        this.cameras.main.fadeIn(1000, 0, 0, 0); // Fade in da próxima cena durante 1 segundo (1000 milissegundos)
     }
 
 
@@ -78,7 +75,10 @@ export default class Nivel1 extends Phaser.Scene {
     
     entrar() {
         if (this.porta.hasTileAtWorldXY(this.personagem.body.position.x, this.personagem.body.position.y)) {
-            this.scene.transition({ target: "Nivel2"});
+            this.cameras.main.fadeOut(1000, 0, 0, 0); // Fade out da cena atual durante 1 segundo (1000 milissegundos)
+            this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
+                this.scene.transition({ target: "Nivel2"});
+            });
         }
     }
 }

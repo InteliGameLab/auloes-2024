@@ -1,7 +1,7 @@
-export default class Nivel extends Phaser.Scene {
+export default class SelecionaNivel extends Phaser.Scene {
 
     constructor() {
-        super({ key: "Nivel" });
+        super({ key: "SelecionaNivel" });
     };
 
     preload() {
