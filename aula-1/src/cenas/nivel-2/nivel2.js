@@ -20,7 +20,6 @@ export default class Nivel2 extends Phaser.Scene {
         this.load.tilemapTiledJSON("mapa2", "assets/mapa2.json");
 
         carregarSpriteAbacaxi(this);
-        carregarSpritesPersonagem(this);
     }
 
 

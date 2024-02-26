@@ -17,13 +17,10 @@ export default class Nivel1 extends Phaser.Scene {
         this.load.image("transicao", "assets/Other/Objects.png")
         this.load.image("fundo", "assets/Background/Yellow.png");
         this.load.tilemapTiledJSON("mapa1", "assets/mapa1.json");
-
-        carregarSpritesPersonagem(this);
     }
 
 
     create() {
-        criarAnimacoesPersonagem(this);
 
         this.criarMapa();
         

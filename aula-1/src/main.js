@@ -4,7 +4,7 @@
 import Nivel1 from "./cenas/nivel-1/nivel1.js";
 import Nivel2 from "./cenas/nivel-2/nivel2.js";
 import Menu from "./cenas/menu/menu.js"
-import Nivel from "./cenas/selecionar-nivel/niveis.js";
+import SelecionaNivel from "./cenas/selecionar-nivel/seleciona_nivel.js";
 
 var config = {
     type: Phaser.AUTO,
@@ -17,11 +17,10 @@ var config = {
         default: 'arcade',
         arcade: {
             gravity: { y: 900 },
-            debug: true
         }
     },
     pixelArt: true,
-    scene: [Menu, Nivel, Nivel1, Nivel2]
+    scene: [Menu, SelecionaNivel, Nivel1, Nivel2]
 };
 
 
