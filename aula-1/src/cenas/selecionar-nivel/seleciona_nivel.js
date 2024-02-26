@@ -27,7 +27,7 @@ export default class SelecionaNivel extends Phaser.Scene {
         .setScale(2,1);
 
          // Criando o botão correspondente ao nível 1
-        this.botao1 = this.add.image(640, 460, "1")
+        this.botao1 = this.add.image(640, 360, "1")
         .setScale(3);
 
          // Criando o botão correspondente ao nível 2
