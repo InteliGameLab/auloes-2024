@@ -1,61 +1,81 @@
-import { criarPersonagem, criarAnimacoesPersonagem, spritesPersonagem } from "../../personagem/personagem.js";
-import { movimentar, criarControles, adicionaTecla } from "../../personagem/controles.js";
+import { Personagem, criarAnimacoesPersonagem, carregarSpritesPersonagem } from "../../personagem/personagem.js";
 
 export default class Nivel1 extends Phaser.Scene {
+    mapa;
     personagem;
-    controles;
     chao;
     porta;
+
 
     constructor() {
         super({ key: "Nivel1" });
     }
+
 
     preload() {
         this.load.image("terreno", "assets/Terrain/Terrain(16x16).png");
         this.load.image("transicao", "assets/Other/Objects.png")
         this.load.image("fundo", "assets/Background/Yellow.png");
         this.load.tilemapTiledJSON("mapa1", "assets/mapa1.json");
-        spritesPersonagem(this);
+
+        carregarSpritesPersonagem(this);
     }
+
 
     create() {
-        const mapa = this.make.tilemap({ key: "mapa1" });
-
-        const tilesetTerreno = mapa.addTilesetImage("chao", "terreno");
-        const tilesetPorta = mapa.addTilesetImage("porta", "transicao")
-        const tilesetCeu = mapa.addTilesetImage("ceu", "fundo");
-
-        const ceu = mapa.createLayer("ceu", tilesetCeu, 0, 0);
-        this.chao = mapa.createLayer("chao", tilesetTerreno, 0, 0);
-        this.porta = mapa.createLayer("porta", tilesetPorta, 0, 0);
-
-        this.personagem = criarPersonagem(this);
         criarAnimacoesPersonagem(this);
 
-        this.personagem.anims.play('personagem_idle', true);
+        this.criarMapa();
+        
+        this.criarPersonagem();
 
-        this.chao.setCollisionByProperty({ colisor: true });
+        this.configurarCamera();
+
+        this.configurarLimitesDoMundo();
+    }
+
+
+    criarPersonagem() {
+        this.personagem = new Personagem(this);
+        this.personagem.configurarInteracao(this, this.entrar);
+        this.personagem.adicionarPersonagemACena(this);
 
         this.physics.add.collider(this.personagem, this.chao);
+    }
 
-        this.controles = criarControles(this);
 
-        const espaco = adicionaTecla(this, Phaser.Input.Keyboard.KeyCodes.SPACE);
+    criarMapa() {
+        this.mapa = this.make.tilemap({ key: "mapa1" });
 
-        espaco.on("down", this.entrar, this);
+        const tilesetTerreno = this.mapa.addTilesetImage("chao", "terreno");
+        const tilesetPorta = this.mapa.addTilesetImage("porta", "transicao")
+        const tilesetCeu = this.mapa.addTilesetImage("ceu", "fundo");
 
-        this.cameras.main.setBounds(0, 0, mapa.widthInPixels, mapa.heightInPixels, true, true, true, true);
-        this.physics.world.setBounds(0, 0, mapa.widthInPixels, mapa.heightInPixels, true, true, true, true);
+        const ceu = this.mapa.createLayer("ceu", tilesetCeu, 0, 0);
+        this.chao = this.mapa.createLayer("chao", tilesetTerreno, 0, 0);
+        this.porta = this.mapa.createLayer("porta", tilesetPorta, 0, 0);
+
+        this.chao.setCollisionByProperty({ colisor: true });
+    }
+
+
+    configurarCamera() {
+        this.cameras.main.setBounds(0, 0, this.mapa.widthInPixels, this.mapa.heightInPixels, true, true, true, true);
         this.cameras.main.startFollow(this.personagem, true, 0.05, 0.05);
         this.cameras.main.setZoom(1.5);
-
     }
+
+
+    configurarLimitesDoMundo() {
+        this.physics.world.setBounds(0, 0, this.mapa.widthInPixels, this.mapa.heightInPixels, true, true, true, true);
+    }
+
 
     update() {
-        movimentar(this.controles, this.personagem);
+        this.personagem.movimentar();
     }
 
+    
     entrar() {
         if (this.porta.hasTileAtWorldXY(this.personagem.body.position.x, this.personagem.body.position.y)) {
             this.scene.transition({ target: "Nivel2"});
