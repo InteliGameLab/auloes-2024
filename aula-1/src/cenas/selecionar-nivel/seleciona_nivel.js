@@ -27,11 +27,11 @@ export default class SelecionaNivel extends Phaser.Scene {
         .setScale(2,1);
 
          // Criando o botão correspondente ao nível 1
-        this.botao1 = this.add.image(this.game.renderer.width / 2, this.game.renderer.height / 2,"1")
+        this.botao1 = this.add.image(640, 460, "1")
         .setScale(3);
 
          // Criando o botão correspondente ao nível 2
-        this.botao2 = this.add.image(this.game.renderer.width / 2, this.game.renderer.height / 2 + 100,"2")
+        this.botao2 = this.add.image(640, 460, "2")
         .setScale(3);
 
         // Dizendo para o Phaser que os botões não são apenas imagens, mas sim objetos com que se pode interagir

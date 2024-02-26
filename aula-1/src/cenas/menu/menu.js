@@ -39,15 +39,15 @@ export default class Menu extends Phaser.Scene {
         .setScale(2,1);
 
         // Criando o título que aparece no menu
-        this.add.text(this.game.renderer.width / 2 - 170, this.game.renderer.height * 0.20, 'Sapo e abacaxi',
+        this.add.text(470, 145, 'Sapo e abacaxi',
          { fontFamily: 'Roboto', fontSize: '64px', fill: '#000000' })
 
          // Criando o botão de jogar
-        this.botaoJogar = this.add.image(this.game.renderer.width / 2, this.game.renderer.height / 2, "jogar")
+        this.botaoJogar = this.add.image(640, 360, "jogar")
         .setScale(3);
 
         // Criando o botão de selecionar nível
-        this.botaoNivel = this.add.image(this.game.renderer.width / 2, this.game.renderer.height / 2 + 100, "nivel")
+        this.botaoNivel = this.add.image(640, 460, "nivel")
         .setScale(3);
 
         // Dizendo para o Phaser que os botões não são apenas imagens, mas sim objetos com que se pode interagir
