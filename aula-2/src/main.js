@@ -2,6 +2,7 @@
 import UI from "./cenas/UI/cenaUI.js";
 import Final from "./cenas/final/final.js";
 import Nivel1 from "./cenas/nivel/nivel.js";
+import Menu from "./cenas/menu/menu.js";
 
 // Configuração para inicialização do jogo
 var config = {
@@ -18,8 +19,7 @@ var config = {
         }
     },
     debug: true,
-    pixelArt: true,
-    scene: [Nivel1, UI, Final]
+    scene: [Menu, Nivel1, UI, Final]
 };
 
 // Inicialização do jogo

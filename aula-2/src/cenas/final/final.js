@@ -21,16 +21,18 @@ export default class Final extends Phaser.Scene {
     preload() {
         // Carregamento dos recursos da cena
         this.load.image("fundo", "assets/fundo.png");
-        this.load.image("botao", "assets/botao.png");
+        this.load.image("botao", "assets/botaoMenu.png");
     }
 
 
     create() {
         // Adicionando background
-        this.add.image(0, 0, "fundo").setOrigin(0);
+        this.add.image(0, 0, "fundo").setOrigin(0)
+        .setScale(3,3);
 
         // Adicionando botão de voltar ao menu
-        this.botaoRetornar = this.add.image(100, 200, "botao");
+        this.botaoRetornar = this.add.image(640, 560, "botao")
+        .setScale(0.5, 0.5);
         // Adicionando evento de clique ao botão
         this.botaoRetornar.setInteractive();
         this.botaoRetornar.on("pointerup", this.voltarAoMenu, this);
