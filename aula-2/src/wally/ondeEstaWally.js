@@ -41,8 +41,8 @@ export class OndeEstaWally {
     
 
     // Adiciona um Wally à cena e à lista
-    adicionarWally(cena, nomeWally, wallyX, wallyY, largura, altura) {
-        this.wallys.push(new Wally(cena, nomeWally, wallyX, wallyY, largura, altura));
+    adicionarWally(cena, nomeWally, wallyX, wallyY, largura, altura, cor) {
+        this.wallys.push(new Wally(cena, nomeWally, wallyX, wallyY, largura, altura, cor));
         this.quantidadeWallys += 1;
     }
 

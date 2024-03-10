@@ -43,8 +43,8 @@ export default class Nivel1 extends Phaser.Scene {
 
     configurarCamera() {
         // Configuração de limites e zoom da câmera
-        this.cameras.main.setBounds(-140, 0, this.minigame.larguraImagem() + 140, this.minigame.alturaImagem(), false);
-        this.cameras.main.setZoom(0.7);
+        this.cameras.main.setBounds(-200, 0, this.minigame.larguraImagem() + 200, this.minigame.alturaImagem(), false);
+        this.cameras.main.setZoom(0.5);
 
         // Inicializando o controlador da câmera
         this.cameraMan = new CameraMan(this.cameras.main, this.input.mousePointer);
@@ -65,7 +65,7 @@ export default class Nivel1 extends Phaser.Scene {
 
     // Adiciona personagens a serem encontrados
     adicionarWallys() {
-        this.minigame.adicionarWally(this, "Madonna", 100, 100, 100, 100);
+        this.minigame.adicionarWally(this, "Madonna", 100, 100, 100, 100, 0x00FF00);
     }
 
 
