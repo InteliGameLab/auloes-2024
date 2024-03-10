@@ -18,13 +18,13 @@ export default class Nivel extends Phaser.Scene {
 
     preload() {
         // Carregamento dos recursos do nível
-        this.load.image("fundo", "assets/fundo.jpg");
+        this.load.image("nivel1", "assets/nivel1.jpg");
     }
 
 
     create() {
         // Inicialização do minigame com a imagem carregada
-        this.minigame = new OndeEstaWally(this, "fundo");
+        this.minigame = new OndeEstaWally(this, "nivel1");
 
         // Criação de um evento personalizado "achou" que, quando acontecer, executará a função "achouWally"
         eventosAdm.addListener("achou", this.achouWally, this);
@@ -100,6 +100,6 @@ export default class Nivel extends Phaser.Scene {
 
     // Começa a próxima cena, passando os dados atuais do minigame
     comecarProximaCena() {
-        this.scene.start("Final", { minigame : this.minigame });
+        this.scene.start("Final", { dadosMinigame : this.minigame });
     }
 }

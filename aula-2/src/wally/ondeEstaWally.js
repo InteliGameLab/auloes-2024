@@ -33,7 +33,13 @@ export class OndeEstaWally {
         return this.wallys.length;
     }
 
+
+    // Retorna quantos personagens foram encontrados pelo jogador
+    wallysEncontrados() {
+        return this.quantidadeWallys - this.wallysRestantes();
+    }
     
+
     // Adiciona um Wally à cena e à lista
     adicionarWally(cena, nomeWally, wallyX, wallyY, largura, altura) {
         this.wallys.push(new Wally(cena, nomeWally, wallyX, wallyY, largura, altura));

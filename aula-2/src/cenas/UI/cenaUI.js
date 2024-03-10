@@ -7,6 +7,7 @@ export default class UI extends Phaser.Scene {
     // Posição inicial no eixo Y para adicionar nomes encontrados ao contêiner
     nomeY = 20;
 
+    
     // Construtor da classe. Avisa ao Phaser que, para se referir a essa cena, utiliza-se a chave "UI"
     constructor() {
         super({ key: "UI" });
