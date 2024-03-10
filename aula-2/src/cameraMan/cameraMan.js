@@ -1,5 +1,6 @@
 import { eventosAdm } from "../eventosAdm/eventosAdm.js";
 
+// Controla a câmera de cenas de acordo com movimento de arrastar o mouse
 export class CameraMan {
     // Câmera que será controlada pelo "câmera man"
     camera;
@@ -13,6 +14,8 @@ export class CameraMan {
     constructor(camera, mouse) {
         this.camera = camera;
         this.mouse = mouse;
+
+        // Eventos aos quais o Camera Man responde
         eventosAdm.addListener("clicou", this.registrarPosicaoMouse, this);
         eventosAdm.addListener("moveu", this.moverCamera, this);
     }

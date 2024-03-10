@@ -1,43 +1,54 @@
 import { Wally } from "./wally.js";
 
+// Classe de minigame Onde Está Wally
 export class OndeEstaWally {
+    // Background que contém os personagens a serem encontrados
     imagem;
+    // Quantos personagens podem ser encontrados
     quantidadeWallys = 0;
+    // Lista de personagens existentes
     wallys = [];
 
 
     constructor(cena, nomeImagem) {
-        // Definir a origem da imagem de fundo para o canto superior esquerdo
+        // Adicionando o background à cena
         this.imagem = cena.add.image(0, 0, nomeImagem).setOrigin(0);
     }
 
 
+    // Retorna a largura da imagem de background
     larguraImagem() {
         return this.imagem.width;
     }
 
 
+    // Retorna a altura da imagem de background
     alturaImagem() {
         return this.imagem.height;
     }
 
 
+    // Retorna quantos personagens ainda podem ser encontrados
+    wallysRestantes() {
+        return this.wallys.length;
+    }
+
+    
+    // Adiciona um Wally à cena e à lista
     adicionarWally(cena, nomeWally, wallyX, wallyY, largura, altura) {
         this.wallys.push(new Wally(cena, nomeWally, wallyX, wallyY, largura, altura));
         this.quantidadeWallys += 1;
     }
 
 
+    // Remove um Wally da cena e da lista
     removerWally(wally) {
         let index = this.wallys.indexOf(wally);
         
         if (index != -1) {
             this.wallys.splice(index, 1);
         }
-    }
-
-
-    wallysRestantes() {
-        return this.wallys.length;
+        
+        wally.destroy();
     }
 }
