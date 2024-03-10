@@ -12,9 +12,11 @@ var config = {
     physics: {
         default: 'arcade',
         arcade: {
-            gravity: { y: 900 },
+            gravity: { y: 0 }, // Jogo não precisará de gravidade
         }
     },
+    debug: true,
+    pixelArt: true,
     scene: [Nivel]
 };
 
