@@ -1,23 +1,24 @@
+import { eventosAdm } from "../eventosAdm/eventosAdm.js";
+
+// Classe que representa um personagem a ser encontrado no minigame Onde Está Wally
 export class Wally extends Phaser.GameObjects.Rectangle {
+    // Nome do personagem
     nome;
-    emissor;
     
+
     constructor(cena, nomeWally, wallyX, wallyY, largura, altura) {
-        this.emissor = new Phaser.Events.EventEmitter();
-        this.emissor.addListener("clicou", this.achouWally, this);
+        // Criando um retângulo que, quando clicado, confirma que o jogador achou o personagem
+        super(cena, wallyX, wallyY, largura, altura);
 
         this.nome = nomeWally;
-
-        super(cena, wallyX, wallyY, largura, altura);
+        
+        // Adicionando o retângulo à cena
         cena.add.existing(this);
 
+        // Permite cliques no retângulo
         this.setInteractive();
-        this.on("pointerup", () => this.emissor.emit("clicou", cena));
-    }
-
-
-    achouWally(cena) {
-        let texto = cena.add.text(this.x, this.y, "Achou " + this.nome + "!!!");
-        setTimeout(() => texto.destroy(), 3500);
+        
+        // Configura o evento de clique no retângulo
+        this.on("pointerup", () => eventosAdm.emit("achou", this), this);
     }
 }
