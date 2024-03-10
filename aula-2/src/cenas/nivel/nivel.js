@@ -3,7 +3,7 @@ import { OndeEstaWally } from "../../wally/ondeEstaWally.js";
 import { eventosAdm } from "../../eventosAdm/eventosAdm.js"
 
 // Classe de cena do primeiro nível!
-export default class Nivel extends Phaser.Scene {
+export default class Nivel1 extends Phaser.Scene {
     // Minigame de onde está o Wally
     minigame;
     // Responsável por controlar a movimentação da câmera
@@ -12,7 +12,7 @@ export default class Nivel extends Phaser.Scene {
     
     // Construtor da classe. Avisa ao Phaser que, para se referir a essa cena, utiliza-se a chave "Nivel"
     constructor() {
-        super({ key: "Nivel" });
+        super({ key: "Nivel1" });
     }
 
 
