@@ -1,6 +1,7 @@
 // Importações das cenas que fazem parte do jogo
 import UI from "./cenas/UI/cenaUI.js";
-import Nivel from "./cenas/nivel/nivel.js";
+import Final from "./cenas/final/final.js";
+import Nivel1 from "./cenas/nivel/nivel.js";
 
 // Configuração para inicialização do jogo
 var config = {
@@ -18,7 +19,7 @@ var config = {
     },
     debug: true,
     pixelArt: true,
-    scene: [Nivel, UI]
+    scene: [Nivel1, UI, Final]
 };
 
 // Inicialização do jogo

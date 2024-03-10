@@ -1,5 +1,5 @@
 // Classe de cena do fim de jogo
-export class Final extends Phaser.Scene {
+export default class Final extends Phaser.Scene {
     // Botão para retornar ao menu
     botaoRetornar;
     // Dados sobre o minigame jogado
