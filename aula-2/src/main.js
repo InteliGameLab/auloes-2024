@@ -1,5 +1,5 @@
 // Importações das cenas que fazem parte do jogo
-import Nivel from "./nivel/nivel.js";
+import Nivel from "./cenas/nivel/nivel.js";
 
 // Configuração para inicialização do jogo
 var config = {
