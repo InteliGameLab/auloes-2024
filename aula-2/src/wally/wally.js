@@ -11,7 +11,7 @@ export class Wally extends Phaser.GameObjects.Rectangle {
         super(cena, wallyX, wallyY, largura, altura);
 
         this.nome = nomeWally;
-        
+
         // Para debug dos retângulos
         // this.setFillStyle(0x0000ff);
         // this.setAlpha(0.4);

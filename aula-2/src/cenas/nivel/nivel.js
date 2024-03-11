@@ -52,6 +52,34 @@ export default class Nivel1 extends Phaser.Scene {
             largura: 100,
             altura: 220,
         },
+        "Kurt Cobain": {
+            nome: "Kurt Cobain",
+            posx: 2050,
+            posy: 180,
+            largura: 100,
+            altura: 150
+        },
+        "Jay-Z": {
+            nome: "Jay-Z",
+            posx: 2980,
+            posy: 340,
+            largura: 90,
+            altura: 180
+        },
+        "Deadmau5": {
+            nome: "Deadmau5",
+            posx: 2600,
+            posy: 530,
+            largura: 100,
+            altura: 100
+        },
+        "Pharrel Willians": {
+            nome: "Pharrel Willians",
+            posx: 2730,
+            posy: 220,
+            largura: 100,
+            altura: 120
+        },
         "Daft Punk": {
             nome: "Daft Punk",
             posx: 3750,
@@ -119,15 +147,10 @@ export default class Nivel1 extends Phaser.Scene {
 
     // Adiciona personagens a serem encontrados
     adicionarWallys() { 
-        // "Prince", "Adele", "Daft Punk", "Gorillaz", "David Bowie", "Amy Winehouse", "Freddy Mercury", "Elton John"
-        this.minigame.adicionarWally(this, this.artistas.Prince.nome, this.artistas.Prince.posx, this.artistas.Prince.posy, this.artistas.Prince.largura, this.artistas.Prince.altura);
-        this.minigame.adicionarWally(this, this.artistas.Adele.nome, this.artistas.Adele.posx, this.artistas.Adele.posy, this.artistas.Adele.largura, this.artistas.Adele.altura);
-        this.minigame.adicionarWally(this, this.artistas["Daft Punk"].nome, this.artistas["Daft Punk"].posx, this.artistas["Daft Punk"].posy, this.artistas["Daft Punk"].largura, this.artistas["Daft Punk"].altura);
-        this.minigame.adicionarWally(this, this.artistas.Gorillaz.nome, this.artistas.Gorillaz.posx, this.artistas.Gorillaz.posy, this.artistas.Gorillaz.largura, this.artistas.Gorillaz.altura);
-        this.minigame.adicionarWally(this, this.artistas["David Bowie"].nome, this.artistas["David Bowie"].posx, this.artistas["David Bowie"].posy, this.artistas["David Bowie"].largura, this.artistas["David Bowie"].altura);
-        this.minigame.adicionarWally(this, this.artistas["Amy Winehouse"].nome, this.artistas["Amy Winehouse"].posx, this.artistas["Amy Winehouse"].posy, this.artistas["Amy Winehouse"].largura, this.artistas["Amy Winehouse"].altura);
-        this.minigame.adicionarWally(this, this.artistas["Freddy Mercury"].nome, this.artistas["Freddy Mercury"].posx, this.artistas["Freddy Mercury"].posy, this.artistas["Freddy Mercury"].largura, this.artistas["Freddy Mercury"].altura);
-        this.minigame.adicionarWally(this, this.artistas["Elton John"].nome, this.artistas["Elton John"].posx, this.artistas["Elton John"].posy, this.artistas["Elton John"].largura, this.artistas["Elton John"].altura);
+        // Adicionando todos os artistas do dicionário
+        for (let artista in this.artistas) {
+            this.minigame.adicionarWally(this, this.artistas[artista].nome, this.artistas[artista].posx, this.artistas[artista].posy, this.artistas[artista].largura, this.artistas[artista].altura);
+        }
     }
 
 
