@@ -22,7 +22,7 @@ export default class UI extends Phaser.Scene {
         this.nomesContainer = this.add.container(0, 0);
 
         // Adicionar um retângulo como fundo do contêiner
-        const fundo = this.add.rectangle(70, 0, 140, 1450, 0x333333);
+        const fundo = this.add.rectangle(0, 0, 100, 1450, 0x333333).setOrigin(0);
 
         // Adicionar o retângulo de fundo ao contêiner
         this.nomesContainer.add(fundo);
