@@ -5,8 +5,8 @@ import Nivel1 from "./cenas/nivel/nivel.js";
 import Menu from "./cenas/menu/menu.js";
 
 
-const DEFAULT_WIDTH = window.innerWidth;
-const DEFAULT_HEIGHT = window.innerHeight;
+const DEFAULT_WIDTH = 1280;
+const DEFAULT_HEIGHT = 720;
 const MAX_WIDTH = DEFAULT_WIDTH * 1.5;
 const MAX_HEIGHT = DEFAULT_HEIGHT * 1.5;
 
