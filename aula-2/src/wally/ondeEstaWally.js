@@ -29,17 +29,16 @@ export class OndeEstaWally {
     }
 
 
-    // Retorna quantos personagens ainda podem ser encontrados
-    wallysRestantes() {
-        return this.wallys.length;
+    // Retorna true se o jogador encontrou todos os personagens
+    encontrouTodos() {
+        return this.wallys.length === 0;
     }
 
 
-    // Retorna quantos personagens foram encontrados pelo jogador
-    wallysEncontrados() {
-        return this.quantidadeWallys - this.wallysRestantes();
-    }
-    
+    // Retorna a quantidade de personagens que podem ser encontrados
+    totalWallys() {
+        return this.quantidadeWallys;
+    }    
 
     // Adiciona um Wally à cena e à lista
     adicionarWally(cena, nomeWally, wallyX, wallyY, largura, altura, cor) {

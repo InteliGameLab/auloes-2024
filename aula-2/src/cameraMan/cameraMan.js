@@ -25,7 +25,6 @@ export class CameraMan {
 
     registrarPosicaoMouse() {
         // Registra a última posição de clique do mouse
-        console.log(this.mouse.x, this.mouse.y);
         this.lastPointerX = game.input.mousePointer.x;
         this.lastPointerY = game.input.mousePointer.y;
         

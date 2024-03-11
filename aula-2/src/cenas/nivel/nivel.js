@@ -100,7 +100,7 @@ export default class Nivel1 extends Phaser.Scene {
 
     configurarCamera() {
         // Configuração de limites e zoom da câmera
-        this.cameras.main.setBounds(-200, 0, this.minigame.larguraImagem() + 200, this.minigame.alturaImagem(), false);
+        this.cameras.main.setBounds(-400, 0, this.minigame.larguraImagem() + 400, this.minigame.alturaImagem(), false);
         this.cameras.main.setZoom(0.5);
 
         // Inicializando o controlador da câmera
@@ -136,19 +136,19 @@ export default class Nivel1 extends Phaser.Scene {
         const abaixoDoWally = wally.getBottomCenter();
 
         // Texto de feedback visual ao jogador quando encontra alguém
-        const texto = this.add.text(abaixoDoWally.x, abaixoDoWally.y, "Achou " + wally.nome + "!!!", { fontFamily: 'Arial', fontSize: 32, color: '#00000' });
+        const texto = this.add.text(abaixoDoWally.x, abaixoDoWally.y, "Achou " + wally.nome + "!!!",
+                        { fontFamily: 'Arial', fontSize: 40, color: '#000000', backgroundColor: '#ffffff' }).setOrigin(0.5, 0);
 
+        // Remove o objeto para que não possa mais ser clicado para ser encontrado
+        this.minigame.removerWally(wally);
+        
         // Ganha se encontrar o Wally real
-        if (wally.nome === "Wally") {
+        if (this.minigame.encontrouTodos()) {
             this.ganhar();
         }
-
         else {
             // Destrói o texto de feedback visual após três segundos e meio (3500 milissegundos)
             setTimeout(() => texto.destroy(), 3500);
-
-            // Remove o objeto para que não possa mais ser clicado para ser encontrado
-            this.minigame.removerWally(wally);
         }
     }
 
@@ -162,6 +162,7 @@ export default class Nivel1 extends Phaser.Scene {
 
     // Começa a próxima cena, passando os dados atuais do minigame
     comecarProximaCena() {
+        this.scene.stop("UI");
         this.scene.start("Final", { dadosMinigame : this.minigame });
     }
 }

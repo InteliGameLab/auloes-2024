@@ -16,7 +16,7 @@ export default class Final extends Phaser.Scene {
 
     // Função executada ao iniciar a cena e que recebe os dados passados pela cena anterior
     init(dados) {
-        this.dadosMinigame = dados;
+        this.dadosMinigame = dados.dadosMinigame;
     }
 
 
@@ -39,19 +39,12 @@ export default class Final extends Phaser.Scene {
         this.botaoRetornar.on("pointerup", this.voltarAoMenu, this);
 
         // Dados do desempenho do jogador no minigame
-        const encontrados = this.dadosMinigame.wallysEncontrados();
-        const restantes = this.dadosMinigame.wallysRestantes();
+        const encontrados = this.dadosMinigame.totalWallys();
 
         // Criando o texto de feedback
-        let texto;
-        if (restantes > 0) {
-            texto = this.add.text(game.renderer.width / 2, 216, "Parabéns! Você encontrou " + encontrados + " personagens!\nFaltaram apenas " + restantes + ".",
-                        { fontFamily: 'Arial', fontSize: 18, color: '#ffffff' });
-        }
-        else {
-            texto = this.add.text(game.renderer.width / 2, 216, "Parabéns! Você encontrou todos os " + encontrados + " personagens!",
-                        { fontFamily: 'Arial', fontSize: 18, color: '#ffffff' });
-        }
+        let texto = this.add.text(game.renderer.width / 2, 216, "Parabéns! Você encontrou\ntodos os " + encontrados + " personagens!",
+                        { fontFamily: 'Arial', fontSize: 52, color: '#ffffff', align: 'center' }).setOrigin(0.5, 0);
+
         // Reposicionando em caso de resize da tela
         texto.onResize = function() {
             this.x = game.renderer.width / 2;
