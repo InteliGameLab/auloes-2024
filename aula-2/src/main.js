@@ -36,6 +36,7 @@ var config = {
         // LANDSCAPE: Mantém a orientação da tela em paisagem, independentemente da orientação do dispositivo.
         // PORTRAIT: Mantém a orientação da tela em retrato, independentemente da orientação do dispositivo.
         // RESIZE: Permite que o conteúdo seja redimensionado para se ajustar dinamicamente ao tamanho da tela, atualizando continuamente conforme a tela é redimensionada.
+        // SMOOTH: Tenta manter as proporções a todo custo e redimensiona o conteúdo (quando há necessidade) de forma sutil.
 
     },
     scene: [Menu, Nivel1, UI, Final]
