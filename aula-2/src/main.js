@@ -18,6 +18,12 @@ var config = {
     height: DEFAULT_HEIGHT,
     disableContextMenu: true, // Desativa a interação do navegador com o botão direito do mouse
     backgroundColor: "0x00adee",
+    physics: {
+        default: 'arcade',
+        arcade: {
+            gravity: { y: 0 }, // Jogo não precisará de gravidade
+        }
+    },
     scale: {
         mode: Phaser.Scale.NONE,
         // CENTER_BOTH: Dimensiona o conteúdo para que ele seja centralizado tanto horizontal quanto verticalmente na tela.
@@ -30,69 +36,65 @@ var config = {
         // LANDSCAPE: Mantém a orientação da tela em paisagem, independentemente da orientação do dispositivo.
         // PORTRAIT: Mantém a orientação da tela em retrato, independentemente da orientação do dispositivo.
         // RESIZE: Permite que o conteúdo seja redimensionado para se ajustar dinamicamente ao tamanho da tela, atualizando continuamente conforme a tela é redimensionada.
+        // SMOOTH: Tenta manter as proporções a todo custo e redimensiona o conteúdo (quando há necessidade) de forma sutil.
 
     },
-    physics: {
-        default: 'arcade',
-        arcade: {
-            gravity: { y: 0 }, // Jogo não precisará de gravidade
-        }
-    },
-    debug: true,
-    scene: [Nivel1, UI, Final]
+    scene: [Menu, Nivel1, UI, Final]
 };
 
 // Inicialização do jogo
 export const game = new Phaser.Game(config);
 
 
-// the custom resize function
+// Função de scaling personalizada
 const resize = () => {
-    const w = window.innerWidth
-    const h = window.innerHeight
+    // Pegando as novas medidas da janela de largura e altura
+    const w = window.innerWidth;
+    const h = window.innerHeight;
 
-    let width = DEFAULT_WIDTH
-    let height = DEFAULT_HEIGHT
-    let maxWidth = MAX_WIDTH
-    let maxHeight = MAX_HEIGHT
+    let width = DEFAULT_WIDTH;
+    let height = DEFAULT_HEIGHT;
 
-    let scale = Math.min(w / width, h / height)
-    let newWidth = Math.min(w / scale, maxWidth)
-    let newHeight = Math.min(h / scale, maxHeight)
+    // Calculando novos valores de largura e altura
+    let scale = Math.min(w / width, h / height);
+    let newWidth = Math.min(w / scale, MAX_WIDTH);
+    let newHeight = Math.min(h / scale, MAX_HEIGHT);
 
-    let defaultRatio = DEFAULT_WIDTH / DEFAULT_HEIGHT
-    let maxRatioWidth = MAX_WIDTH / DEFAULT_HEIGHT
-    let maxRatioHeight = DEFAULT_WIDTH / MAX_HEIGHT
+    // Calculando razão entre largura e altura
+    let defaultRatio = DEFAULT_WIDTH / DEFAULT_HEIGHT;
+    let maxRatioWidth = MAX_WIDTH / DEFAULT_HEIGHT;
+    let maxRatioHeight = DEFAULT_WIDTH / MAX_HEIGHT;
 
-    // smooth scaling
-    let smooth = 1
-    const maxSmoothScale = 1.15
+    // Fator de suavização do scaling
+    let smooth = 1;
+    const maxSmoothScale = 1.15;
+
+    // Matemática complicada para calcular o fator de suavização para a função de scaling
     const normalize = (value, min, max) => {
-        return (value - min) / (max - min)
+        return (value - min) / (max - min);
     }
     if (width / height < w / h) {
-        smooth =
-            -normalize(newWidth / newHeight, defaultRatio, maxRatioWidth) / (1 / (maxSmoothScale - 1)) + maxSmoothScale
+        smooth = -normalize(newWidth / newHeight, defaultRatio, maxRatioWidth) / (1 / (maxSmoothScale - 1)) + maxSmoothScale;
     } 
     else {
-        smooth =
-            -normalize(newWidth / newHeight, defaultRatio, maxRatioHeight) / (1 / (maxSmoothScale - 1)) + maxSmoothScale
+        smooth = -normalize(newWidth / newHeight, defaultRatio, maxRatioHeight) / (1 / (maxSmoothScale - 1)) + maxSmoothScale;
     }
 
-    // resize the game
-    game.scale.resize(newWidth * smooth, newHeight * smooth)
+    // Aplicando o scaling
+    game.scale.resize(newWidth * smooth, newHeight * smooth);
 
-    // scale the width and height of the css
-    game.canvas.style.width = newWidth * scale + 'px'
-    game.canvas.style.height = newHeight * scale + 'px'
+    // Aplicando o scaling no CSS da página
+    game.canvas.style.width = newWidth * scale + 'px';
+    game.canvas.style.height = newHeight * scale + 'px';
 
-    // center the game with css margin
-    game.canvas.style.marginTop = `${(h - newHeight * scale) / 2}px`
-    game.canvas.style.marginLeft = `${(w - newWidth * scale) / 2}px`
+    // Centralizando o jogo na tela com margem no CSS
+    game.canvas.style.marginTop = `${(h - newHeight * scale) / 2}px`;
+    game.canvas.style.marginLeft = `${(w - newWidth * scale) / 2}px`;
 
 
-    game.scene.scenes.forEach(function(scene) {
-        scene.children.list.forEach(function(child) {
+    // Chamando a função "onResize" para cada elemento nas cenas que a possuir
+    game.scene.scenes.forEach((scene) => {
+        scene.children.list.forEach((child) => {
             if (typeof child.onResize === 'function') {
                 child.onResize();
             }
@@ -102,7 +104,7 @@ const resize = () => {
 
 
 window.addEventListener('resize', event => {
-    resize()
+    resize();
 })
 
 resize();
