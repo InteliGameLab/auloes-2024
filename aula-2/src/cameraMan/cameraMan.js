@@ -1,5 +1,6 @@
 import { eventosAdm } from "../eventosAdm/eventosAdm.js";
-
+import { game } from "../main.js"
+ 
 // Controla a câmera de cenas de acordo com movimento de arrastar o mouse
 export class CameraMan {
     // Câmera que será controlada pelo "câmera man"
@@ -9,6 +10,7 @@ export class CameraMan {
     // Últimas posições de clique do mouse
     lastPointerX;
     lastPointerY;
+
 
 
     constructor(camera, mouse) {
@@ -23,8 +25,10 @@ export class CameraMan {
 
     registrarPosicaoMouse() {
         // Registra a última posição de clique do mouse
-        this.lastPointerX = this.mouse.x;
-        this.lastPointerY = this.mouse.y;
+        console.log(this.mouse.x, this.mouse.y);
+        this.lastPointerX = game.input.mousePointer.x;
+        this.lastPointerY = game.input.mousePointer.y;
+        
     }
 
 

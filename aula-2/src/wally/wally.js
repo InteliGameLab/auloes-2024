@@ -6,12 +6,13 @@ export class Wally extends Phaser.GameObjects.Rectangle {
     nome;
     
 
-    constructor(cena, nomeWally, wallyX, wallyY, largura, altura, cor) {
+    constructor(cena, nomeWally, wallyX, wallyY, largura, altura) {
         // Criando um retângulo que, quando clicado, confirma que o jogador achou o personagem
         super(cena, wallyX, wallyY, largura, altura);
 
         this.nome = nomeWally;
-        this.setFillStyle(cor);
+        // this.setFillStyle(0x0000ff);
+        // this.setAlpha(0.4);
         
         // Adicionando o retângulo à cena
         cena.add.existing(this);

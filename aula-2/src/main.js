@@ -39,7 +39,7 @@ var config = {
         }
     },
     debug: true,
-    scene: [Menu, Nivel1, UI, Final]
+    scene: [Nivel1, UI, Final]
 };
 
 // Inicialização do jogo
