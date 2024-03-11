@@ -1,3 +1,4 @@
+import { eventosAdm } from "../eventosAdm/eventosAdm.js";
 import { Wally } from "./wally.js";
 
 // Classe de minigame Onde Está Wally
@@ -42,8 +43,10 @@ export class OndeEstaWally {
 
     // Adiciona um Wally à cena e à lista
     adicionarWally(cena, nomeWally, wallyX, wallyY, largura, altura, cor) {
-        this.wallys.push(new Wally(cena, nomeWally, wallyX, wallyY, largura, altura, cor));
+        const novoWally = new Wally(cena, nomeWally, wallyX, wallyY, largura, altura, cor);
+        this.wallys.push(novoWally);
         this.quantidadeWallys += 1;
+        eventosAdm.emit("adicionou", novoWally);
     }
 
 

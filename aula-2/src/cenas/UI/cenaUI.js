@@ -15,8 +15,11 @@ export default class UI extends Phaser.Scene {
 
 
     create() {
-        // Evento para adicionar o nome no contêiner quando achar alguém
-        eventosAdm.addListener("achou", this.adicionarNome, this);
+        // Evento para adicionar o nome no contêiner
+        eventosAdm.addListener("adicionou", this.adicionarNome, this);
+
+        // Evento para remover o nome no contêiner
+        eventosAdm.addListener("achou", this.removerNome, this);
 
         // Criação do contêiner de nomes encontrados
         this.nomesContainer = this.add.container(0, 0);
@@ -41,6 +44,29 @@ export default class UI extends Phaser.Scene {
 
         // Adiciona o texto criado ao contêiner de nomes
         this.nomesContainer.add(textoNome);
+    }
+
+
+    removerNome(wally) {
+        // Remove o nome especificado do contêiner
+        this.nomesContainer.each((elemento) => {
+            if (elemento instanceof Phaser.GameObjects.Text && elemento.text === wally.nome) {
+                elemento.destroy();
+            }
+        });
+
+        // Retornando a altura para o tamanho original
+        this.nomeY = 20;
+
+        // Reorganizando a posição dos elementos do contêiner
+        this.nomesContainer.each((elemento) => {
+            if (elemento instanceof Phaser.GameObjects.Text) {
+                elemento.y = this.nomeY;
+                this.nomeY += elemento.height + 10;
+            }
+        });
+
+
     }
 
 }

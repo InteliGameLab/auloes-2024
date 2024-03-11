@@ -1,3 +1,5 @@
+import { game } from "../../main.js";
+
 export default class Menu extends Phaser.Scene {
     // Botão para iniciar a próxima cena
     botaoIniciar;
@@ -11,20 +13,24 @@ export default class Menu extends Phaser.Scene {
 
     preload() {
         // Carregamento dos recursos da cena
-        this.load.image("menu", "assets/fundo.png");
         this.load.image("botaoMenu", "assets/botaoJogar.png");
         this.load.image("Logo", "assets/Logo.png");
     }
 
 
     create() {
-        // Adicionando background
-        this.add.image(0, 0, "menu").setOrigin(0).setScale(3,3);
-
-        this.add.image(760, 216, "Logo").setScale(0.7, 0.7);
+        let logo = this.add.image(this.game.renderer.width / 2, 216, "Logo").setScale(0.7, 0.7);
+        // Reposicionando em caso de resize da tela
+        logo.onResize = function() {
+            this.x = game.renderer.width / 2;
+        }
 
         // Adicionando botão de iniciar a próxima cena
-        this.botaoIniciar = this.add.image(760, 560, "botaoMenu").setScale(0.5, 0.5);
+        this.botaoIniciar = this.add.image(this.game.renderer.width / 2, 560, "botaoMenu").setScale(0.5, 0.5);
+        // Reposicionando em caso de resize da tela
+        this.botaoIniciar.onResize = function() {
+            this.x = game.renderer.width / 2;
+        }
         // Adicionando evento de clique ao botão
         this.botaoIniciar.setInteractive();
         this.botaoIniciar.on("pointerup", this.comecarProximaCena, this);

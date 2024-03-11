@@ -19,6 +19,8 @@ export default class Nivel1 extends Phaser.Scene {
     preload() {
         // Carregamento dos recursos do nível
         this.load.image("nivel1", "assets/nivel1.jpg");
+        // Rodando a cena de UI
+        this.scene.run("UI");
     }
 
 
@@ -28,9 +30,6 @@ export default class Nivel1 extends Phaser.Scene {
 
         // Criação de um evento personalizado "achou" que, quando acontecer, executará a função "achouWally"
         eventosAdm.addListener("achou", this.achouWally, this);
-        
-        // Rodando a cena de UI
-        this.scene.run("UI");
 
         // Funções de configuração da cena
         this.configurarCamera();
@@ -52,9 +51,6 @@ export default class Nivel1 extends Phaser.Scene {
 
      
     configurarMouse() {
-        // Desativa a interação do navegador com o botão direito do mouse
-        this.input.mouse.disableContextMenu();
-
         // Evento para registrar a posição do mouse
         this.input.on('pointerdown', () => eventosAdm.emit("clicou"), this);
 

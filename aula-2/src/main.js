@@ -4,13 +4,22 @@ import Final from "./cenas/final/final.js";
 import Nivel1 from "./cenas/nivel/nivel.js";
 import Menu from "./cenas/menu/menu.js";
 
+
+const DEFAULT_WIDTH = 1280;
+const DEFAULT_HEIGHT = 720;
+const MAX_WIDTH = DEFAULT_WIDTH * 1.5;
+const MAX_HEIGHT = DEFAULT_HEIGHT * 1.5;
+
+
 // Configuração para inicialização do jogo
 var config = {
     type: Phaser.AUTO,
-    width: 1280,
-    height: 720,
+    width: DEFAULT_WIDTH,
+    height: DEFAULT_HEIGHT,
+    disableContextMenu: true, // Desativa a interação do navegador com o botão direito do mouse
+    backgroundColor: "0x00adee",
     scale: {
-        mode: Phaser.Scale.RESIZE,
+        mode: Phaser.Scale.NONE,
         // CENTER_BOTH: Dimensiona o conteúdo para que ele seja centralizado tanto horizontal quanto verticalmente na tela.
         // CENTER_HORIZONTALLY: Dimensiona o conteúdo para que ele seja centralizado apenas horizontalmente na tela, mantendo sua posição vertical.
         // CENTER_VERTICALLY: Dimensiona o conteúdo para que ele seja centralizado apenas verticalmente na tela, mantendo sua posição horizontal.
@@ -34,4 +43,66 @@ var config = {
 };
 
 // Inicialização do jogo
-const game = new Phaser.Game(config);
+export const game = new Phaser.Game(config);
+
+
+// the custom resize function
+const resize = () => {
+    const w = window.innerWidth
+    const h = window.innerHeight
+
+    let width = DEFAULT_WIDTH
+    let height = DEFAULT_HEIGHT
+    let maxWidth = MAX_WIDTH
+    let maxHeight = MAX_HEIGHT
+
+    let scale = Math.min(w / width, h / height)
+    let newWidth = Math.min(w / scale, maxWidth)
+    let newHeight = Math.min(h / scale, maxHeight)
+
+    let defaultRatio = DEFAULT_WIDTH / DEFAULT_HEIGHT
+    let maxRatioWidth = MAX_WIDTH / DEFAULT_HEIGHT
+    let maxRatioHeight = DEFAULT_WIDTH / MAX_HEIGHT
+
+    // smooth scaling
+    let smooth = 1
+    const maxSmoothScale = 1.15
+    const normalize = (value, min, max) => {
+        return (value - min) / (max - min)
+    }
+    if (width / height < w / h) {
+        smooth =
+            -normalize(newWidth / newHeight, defaultRatio, maxRatioWidth) / (1 / (maxSmoothScale - 1)) + maxSmoothScale
+    } 
+    else {
+        smooth =
+            -normalize(newWidth / newHeight, defaultRatio, maxRatioHeight) / (1 / (maxSmoothScale - 1)) + maxSmoothScale
+    }
+
+    // resize the game
+    game.scale.resize(newWidth * smooth, newHeight * smooth)
+
+    // scale the width and height of the css
+    game.canvas.style.width = newWidth * scale + 'px'
+    game.canvas.style.height = newHeight * scale + 'px'
+
+    // center the game with css margin
+    game.canvas.style.marginTop = `${(h - newHeight * scale) / 2}px`
+    game.canvas.style.marginLeft = `${(w - newWidth * scale) / 2}px`
+
+
+    game.scene.scenes.forEach(function(scene) {
+        scene.children.list.forEach(function(child) {
+            if (typeof child.onResize === 'function') {
+                child.onResize();
+            }
+        });
+    });
+}
+
+
+window.addEventListener('resize', event => {
+    resize()
+})
+
+resize();
