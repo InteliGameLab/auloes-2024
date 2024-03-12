@@ -28,7 +28,7 @@ export default class Final extends Phaser.Scene {
 
     create() {
         // Adicionando botão de voltar ao menu
-        this.botaoRetornar = this.add.image(640, 560, "botao").setScale(0.5, 0.5);
+        this.botaoRetornar = this.add.image(game.renderer.width / 2, 560, "botao").setScale(0.5, 0.5);
         // Reposicionando em caso de resize da tela
         this.botaoRetornar.onResize = function() {
             this.x = game.renderer.width / 2;

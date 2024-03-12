@@ -1,6 +1,8 @@
 import { CameraMan } from "../../cameraMan/cameraMan.js";
 import { OndeEstaWally } from "../../wally/ondeEstaWally.js";
-import { eventosAdm } from "../../eventosAdm/eventosAdm.js"
+import { eventosAdm, limparEventos } from "../../eventosAdm/eventosAdm.js"
+import UI from "../UI/cenaUI.js";
+import { game } from "../../main.js";
 
 // Classe de cena do primeiro nível!
 export default class Nivel1 extends Phaser.Scene {
@@ -105,8 +107,13 @@ export default class Nivel1 extends Phaser.Scene {
     preload() {
         // Carregamento dos recursos do nível
         this.load.image("nivel1", "assets/nivel1.jpg");
+
+        // Garantindo que, após reiniciar o jogo, a cena de UI existirá e será reiniciada (pois é destruída quando se ganha)
+        const uiScene = this.scene.get("UI");
+        uiScene.events.once("destroy", () => this.scene.add("UI", UI, false), this);
+
         // Rodando a cena de UI
-        this.scene.run("UI");
+        game.scene.run("UI");
     }
 
 
@@ -185,7 +192,11 @@ export default class Nivel1 extends Phaser.Scene {
 
     // Começa a próxima cena, passando os dados atuais do minigame
     comecarProximaCena() {
-        this.scene.stop("UI");
+        // Removendo a cena de UI (destrói ela globalmente)
+        this.scene.remove("UI");
+        // Limpando os eventos criados para não serem acionados novamente
+        limparEventos();
+        //Indo para cena final
         this.scene.start("Final", { dadosMinigame : this.minigame });
     }
 }
