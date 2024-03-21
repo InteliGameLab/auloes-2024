@@ -11,55 +11,55 @@ lista de cidades e retornar o valor da maior densidade demográfica.
 Qual das opções abaixo representaria o código adequado para tal função?
 */
 
-function calculaMaiorPerCapita(lista) {
+function maiorDensidadeDemografica(lista) {
     let maior = 0;
     for (cidade of lista) {
-        let perCapita = cidade[0] / cidade[1];
-        if (perCapita > maior) {
-            maior = perCapita;
+        let densidade = cidade[0] / cidade[1];
+        if (densidade > maior) {
+            maior = densidade;
         }
     }
     return maior;
 }
 
 
-function calculaMaiorPerCapita(lista) {
+function maiorDensidadeDemografica(lista) {
     for (cidade of lista) {
-        let perCapita = cidade[0] / cidade[1];
-        console.log(perCapita);
-        if (perCapita > maior) {
-            maior = perCapita;
+        let densidade = cidade[0] / cidade[1];
+        console.log(densidade);
+        if (densidade > maior) {
+            maior = densidade;
         }
     }
     return maior;
 }
 
 
-function calculaMaiorPerCapita(lista) {
+function maiorDensidadeDemografica(lista) {
     for (cidade of lista) {
         let maior = 0;
-        let perCapita = cidade[0] / cidade[1];
-        if (perCapita > maior) {
-            maior = perCapita;
+        let densidade = cidade[0] / cidade[1];
+        if (densidade > maior) {
+            maior = densidade;
             return maior;
         }
     }
 }
 
 
-function calculaMaiorPerCapita(lista) {
+function maiorDensidadeDemografica(lista) {
     let maior = 10000;
-    let perCapita = cidade[0] / cidade[1]; 
+    let densidade = cidade[0] / cidade[1]; 
     for (cidade of lista) {
-        if (perCapita > maior) {
-            maior = perCapita;
+        if (densidade > maior) {
+            maior = densidade;
         }
         return maior;
     }
 }
 
 
-function calculaMaiorPerCapita(lista) {
+function maiorDensidadeDemografica(lista) {
     for (cidade of lista) {
         let maior = 0;
         if (cidade[0] / cidade[1] > maior) {
