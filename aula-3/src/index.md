@@ -389,7 +389,7 @@ Crie uma função chamada ehBissexto(), tendo o ano como argumento, que retorne 
         // Se o ano é divisível por 400, é bissexto
         if (ano % 400 == 0) {
             resposta = true;
-        // Senão, se é divisível por 100, é bissexto
+        // Senão, se é divisível por 100, não é bissexto
         } else if (ano % 100 == 0) {
             resposta = false;
         // Senão, se é divisível por 4, é bissexto
