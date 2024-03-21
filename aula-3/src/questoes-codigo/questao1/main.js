@@ -10,7 +10,7 @@ const MOVIMENTO = {
 var player;
 
 function preload() {
-    this.load.image('player', '../../assets/trechos/player.png');
+    this.load.image('player', '../../assets/player.png');
 }
 
 function create() {

@@ -31,6 +31,7 @@ function dalekInterceptado3(dk, td) {
         return false;
     }
 }
+
             
 function dalekInterceptado4(dk, td) {
     if (dk.x >= (td.x - 10) &&
@@ -51,6 +52,8 @@ function dalekInterceptado5(dk, td) {
         return false;
     }
 }
+
+
 
 console.log("A",dalekInterceptado1({x: 10, y: 10}, {x:20 , y: 20}));
 console.log("B",dalekInterceptado2({x: 10, y: 10}, {x:20 , y: 20}));
