@@ -67,6 +67,14 @@ function update() {
 
   ### Alternativa C
   
+  - Observa-se que a alternativa A está incorreta logo no Trecho 1, no qual o personagem se dirige à direita, enquanto no código ele se dirigiria verdadeiramente à esquerda.
+ 
+  - A alternativa B está incorreta porque o Trecho 4 movimenta o personagem apenas para cima (decrementando `y`), mas no código este trecho movimenta o personagem na diagonal para a esquerda (decrementando `x` e `y`).
+ 
+  - A alternativa D está incorreta porque o Trecho 3 não possui o mesmo tamanho dos demais, e o código mostra que cada trecho possui o mesmo comprimento (100 passos do personagem).
+ 
+  - A alternativa E está incorreta pela mesma lógica da alternativa A: o personagem não começa se movimentando para a direita no Trecho 1, e sim para a esquerda.
+
 </details>
 
 <br><br>
@@ -93,6 +101,14 @@ Considere o trecho de código abaixo, que representa uma rotina de busca, interc
 
   ### Alternativa D
   
+  - A alternativa A é bastante semelhante à correta (D). Porém, ela desconsidera DALEKs que estão exatamente a 10 metros de distância da TARDIS pois não usa os operadores `>=` e `<=`, apenas `>` e `<`. Por isso, só seriam detectados aqueles a nove metros ou menos de distância.
+  
+  - A alternativa B detecta apenas DALEKs a exatos 10 metros de distância por conta do operador `===` utilizado.
+  
+  - A alternativa C, ao utilizar o operador `||`, não delimita corretamente o espaço de detecção de DALEKs e permite a interceptação de inimigos a qualquer distância. Isso porque a posição de um DALEK precisa ser maior ou igual a posição da TARDIS - 10 em ambas as direções `x` e `y` (`dk.x >= td.x - 10 && dk.y >= td.y - 10`) **E** (**não OU**) menor ou igual a posição da TARDIS + 10 também em ambas as direções (`dk.x <= td.x + 10 && dk.y <= td.y + 10`).
+  
+  - A alternativa E está incorreta porque apenas verifica se o DALEK está mais abaixo e mais a direita que a TARDIS, não chega a delimitar a área de detecção.
+
 </details>
 
 <br><br>
@@ -107,7 +123,7 @@ let cont = 0
 
 for(let i = 0; i < num; i++) {
 	cont+=i
-	for(let i = 0; i < num; i++) {
+	for(let j = 0; j < num; j++) {
 		soma = cont;
 	}	    
 }
@@ -124,7 +140,15 @@ for(let i = 0; i < num; i++) {
 <details>
   <summary>Resposta e Explicações</summary>
 
-  ### Alternativa B
+  ### Alternativa A
+
+  - A alternativa B está incorreta porque o comando FOR externo é o responsável pela soma dos índices que está sendo feita, não podendo ser descartado.
+  
+  - A alternativa C está incorreta porque a soma não será sempre 100, será igual a soma de todos os números de 0 a 100 (100 não incluso).
+  
+  - A alternativa D está incorreta porque os valores das variáveis `cont` e `soma` são alterados durante a execução do código, não mantendo seu valor inicial 0.
+  
+  - A alternativa E está incorreta porque não há comando para impressão de resultados e há sim código que deve ser removido. 
   
 </details>
 
@@ -179,7 +203,6 @@ class MainScene extends Phaser.Scene {
             this.p.y += i.y * this.v * (delta / 500);
             this.p.x = Phaser.Math.Clamp(this.p.x, 0, this.game.config.width);
             this.p.y = Phaser.Math.Clamp(this.p.y, 0, this.game.config.height);
-            this.i.setPosition(this.p.x, this.p.y);
         }
     }
 
@@ -197,6 +220,14 @@ class MainScene extends Phaser.Scene {
   <summary>Resposta e Explicações</summary>
 
   ### Alternativa B
+
+  - A alternativa A está incorreta porque os comandos de movimento são estabelecidos nas teclas de seta do teclado, como dita o comando `this.input.keyboard.createCursorKeys()`.
+  
+  - A alternativa C está incorreta porque o código tem objetivo de movimentar o cachorro de acordo com inputs do teclado, não necessariamente até a casa.
+  
+  - A alternativa D está incorreta porque o código tem objetivo de movimentar o cachorro de acordo com inputs do teclado, não necessariamente até o osso.
+  
+  - A alternativa E está incorreta porque o código tem objetivo de movimentar o cachorro de acordo com inputs do teclado, não necessariamente até o osso ou a casa, além de não apresentar uma maneira de coletar o osso.
   
 </details>
 
@@ -222,6 +253,14 @@ Qual das opções abaixo representaria o código adequado para tal função?
   <summary>Resposta e Explicações</summary>
 
   ### Alternativa A
+
+- A alternativa B está incorreta porque, em primeiro lugar, não é necessário imprimir o valor da densidade demográfica. Além disso, a variável `maior` não foi declarada no código, o que geraria um erro ao tentar utilizá-la.
+
+- A alternativa C está incorreta porque a variável `maior` é declarada dentro do loop FOR, o que faz com que seu valor seja igualado a zero a cada iteração do laço. Além disso, como o valor de `maior` é retornado logo na primeira vez em que se encontra um valor de densidade demográfica maior que o da variável `maior`, não há uma verdadeira comparação de densidades demográficas, apenas é retornada a primeira que seja maior que 0.
+
+- A alternativa D está incorreta porque o valor inicial da variável `maior` pode não ser superado por nenhuma densidade demográfica caso todas sejam menores que dez mil, o que causaria um valor de retorno errado. 
+
+- A alternativa E está incorreta porque a variável `maior` é declarada dentro do loop FOR, o que faz com que seu valor retorne a 0 a cada iteração. Sendo assim, o valor de retorno da função sempre será igual a 0 ou à densidade demográfica da última cidade da lista (caso ela seja maior que 0).
   
 </details>
 
@@ -277,7 +316,10 @@ if (a > b && a > c && a > d) {
 }
 else if (b > a && b > c) {
     e = b;
-} else { e = c; }
+} 
+else { 
+    e = c;
+}
 
 if (c > d) {
     f = c;
@@ -304,7 +346,7 @@ g += 3;
 
 |  |             |          |                    |
 |-------|-----------------|--------------------|------------|
-| A)    | a = 9 | B)    | d = 3 |
+| A)    | a = 9 | B)    | d = 5 |
 | C)    | e = 12 | D)    | f = 5 |
 | E)    | g = 3 |
 
@@ -312,6 +354,14 @@ g += 3;
   <summary>Resposta e Explicações</summary>
 
   ### Alternativa C
+
+- A alternativa A está incorreta porque, na última condicional do código, o valor de `a` é decrementado em 4 caso `d < a` for verdadeiro, tendo um valor final de 5 e não 9.
+
+- A alternativa B está incorreta porque o valor de `d` não é alterado durante a execução do código em nenhum momento.
+
+- A alternativa D está incorreta porque, primeiramente, é atribuído o valor de `c` (5) à `f` na quarta condicional do código (`if (c > d)`). Porém, na última condicional (`if d < a`), o valor de `f` é incrementado em 3, totalizando 8 como valor final da variável.
+
+- A alternativa E está incorreta porque antes de ser incrementada em 3 na última linha do código (`g += 3`), a variável `g` teve seu valor incrementado em 1 na quinta condicional (`if (a > b || c < d)`), totalizando 4 como valor final da variável.
 
 </details>
 
@@ -336,12 +386,16 @@ Crie uma função chamada ehBissexto(), tendo o ano como argumento, que retorne 
     function ehBissexto(ano) {
         var resposta;
 
+        // Se o ano é divisível por 400, é bissexto
         if (ano % 400 == 0) {
             resposta = true;
+        // Senão, se é divisível por 100, é bissexto
         } else if (ano % 100 == 0) {
             resposta = false;
+        // Senão, se é divisível por 4, é bissexto
         } else if (ano % 4 == 0) {
             resposta = true;
+        // Senão, não é bissexto
         } else {
             resposta = false;
         }
@@ -416,9 +470,11 @@ Crie um código que realize a exploração da masmorra de forma eficiente.
 
   ### JavaScript
 ```JavaScript
+// Percorrendo a lista de salas "masmorra"
 for (var i = 0; i < masmorra.length; i++) {
-    if (masmorra[i][1] == true) {
-        iluminar(masmorra[i]);
+    // Se a sala (masmorra[i]) está escura (masmorra[i][1])
+    if (masmorra[i][1] == true) { 
+        iluminar(masmorra[i]); // Ilumine-a
     }
 }
 ```
