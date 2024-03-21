@@ -58,9 +58,9 @@ function update() {
 
 |  |             |          |                    |
 |-------|-----------------|--------------------|------------|
-| A)    | ![Alternativa A](./assets/Trechos/trechos_alternativa1.png) | B)    | ![Alternativa B](./assets/Trechos/trechos_alternativa2.png) |
-| C)    | ![Alternativa C](./assets/Trechos/trechos_alternativa3.png) | D)    | ![Alternativa D](./assets/Trechos/trechos_alternativa4.png) |
-| E)    | ![Alternativa E](./assets/Trechos/trechos_alternativa5.png) |
+| A)    | ![Alternativa A](./assets/trechos/trechos_alternativa1.png) | B)    | ![Alternativa B](./assets/trechos/trechos_alternativa2.png) |
+| C)    | ![Alternativa C](./assets/trechos/trechos_alternativa3.png) | D)    | ![Alternativa D](./assets/trechos/trechos_alternativa4.png) |
+| E)    | ![Alternativa E](./assets/trechos/trechos_alternativa5.png) |
 
 <details>
   <summary>Resposta e Explicações</summary>
