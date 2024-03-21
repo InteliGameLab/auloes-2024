@@ -64,9 +64,29 @@ function update() {
 
 [Clique para ver a resposta](#questão-1---resposta)
 
+## Questão 2
+Questão 7 - Um ser chamado 'Doutor' (Doutor quem?) de outra galáxia do 'Planeta dos Lordes do Tempo', precisa caçar e desativar seres malignos, meio biológicos, meio máquinas, os DALEKs, utilizando sua chave de fenda sônica. O Doutor, assim como os DALEKs, pode viajar no tempo e no espaço. Ele usa uma nave chamada TARDIS (Time And Relative Dimensions In Space) que também viaja para qualquer lugar no tempo e espaço. A TARDIS é equipada com um sensor capaz de detectar um DALEK em um raio de 10m. Considere o trecho de código abaixo, que representa uma rotina de busca, interceptação e captura de DALEKs:
+
+function dalekInterceptado(...
+
+Escolha a alternativa que represente corretamente uma função 'dalekInterceptado' que retorne verdadeiro ou falso caso a TARDIS intercepte um DALEK para poder capturá-lo. A nave 'TARDIS' será representada pela variável 'td' abaixo onde td.x seria a posição 'x' da nave e td.y seria a posição 'y' da nave no espaço. O 'DALEK' será representado por uma variável 'dk', onde 'dk.x' é a posição 'x' do DALEK e 'dk.y' é a posição 'y' do DALEK.
+
+### Alternativas
+
+|  |             |          |                    |
+|-------|-----------------|--------------------|------------|
+| a)    | <img src="./assets/Dalek/Dalek1.png"/> | b)    | <img src="./assets/Dalek/Dalek2.png"/> |
+| c)    | <img src="./assets/Dalek/Dalek3.png"/> | d)    | <img src="./assets/Dalek/Dalek4.png"/> |
+| e)    | <img src="./assets/Dalek/Dalek5.png"/> |
+
+[Clique para ver a resposta](#questão-2---resposta)
+
 # Respostas
 
 ## Questão 1 - Resposta
+
+## Questão 2 - Resposta
+Letra D
 
 
 
