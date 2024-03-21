@@ -58,9 +58,9 @@ function update() {
 
 |  |             |          |                    |
 |-------|-----------------|--------------------|------------|
-| A)    | <img src="./assets/Trechos/trechos_alternativa1.png"/> | B)    | <img src="./assets/Trechos/trechos_alternativa2.png"/> |
-| C)    | <img src="./assets/Trechos/trechos_alternativa3.png"/> | D)    | <img src="./assets/Trechos/trechos_alternativa4.png"/> |
-| E)    | <img src="./assets/Trechos/trechos_alternativa5.png"/> |
+| A)    | ![Alternativa A](./assets/Trechos/trechos_alternativa1.png) | B)    | ![Alternativa B](./assets/Trechos/trechos_alternativa2.png) |
+| C)    | ![Alternativa C](./assets/Trechos/trechos_alternativa3.png) | D)    | ![Alternativa D](./assets/Trechos/trechos_alternativa4.png) |
+| E)    | ![Alternativa E](./assets/Trechos/trechos_alternativa5.png) |
 
 <details>
   <summary>Resposta e Explicações</summary>
@@ -84,9 +84,9 @@ Considere o trecho de código abaixo, que representa uma rotina de busca, interc
 
 |  |             |          |                    |
 |-------|-----------------|--------------------|------------|
-| A)    | <img src="./assets/Dalek/Dalek1.png"/> | B)    | <img src="./assets/Dalek/Dalek2.png"/> |
-| C)    | <img src="./assets/Dalek/Dalek3.png"/> | D)    | <img src="./assets/Dalek/Dalek4.png"/> |
-| E)    | <img src="./assets/Dalek/Dalek5.png"/> |
+| A)    | ![Alternativa A](./assets/Dalek/Dalek1.png) | B)    | ![Alternativa B](./assets/Dalek/Dalek2.png) |
+| C)    | ![Alternativa C](./assets/Dalek/Dalek3.png) | D)    | ![Alternativa D](./assets/Dalek/Dalek4.png) |
+| E)    | ![Alternativa E](./assets/Dalek/Dalek5.png) |
 
 <details>
   <summary>Resposta e Explicações</summary>
@@ -133,7 +133,7 @@ for(let i = 0; i < num; i++) {
 ## Questão 4
 Um código em Javascript foi implementado no objeto “Player”, que controla o sprite de cachorro, na cena abaixo. Considerando que tal código implementado é mostrado mais abaixo, selecione a alternativa que identifique o objetivo dele.
 
-<img src="./assets/questao4/cena.png">
+![Questão 4](./assets/questao4/cena.png)
 
 ```JavaScript
 class MainScene extends Phaser.Scene {
@@ -214,9 +214,9 @@ Qual das opções abaixo representaria o código adequado para tal função?
 
 |  |             |          |                    |
 |-------|-----------------|--------------------|------------|
-| A)    | <img src="./assets/questao5/alternativa1.png"/> | B)    | <img src="./assets/questao5/alternativa2.png"/> |
-| C)    | <img src="./assets/questao5/alternativa3.png"/> | D)    | <img src="./assets/questao5/alternativa4.png"/> |
-| E)    | <img src="./assets/questao5/alternativa5.png"/> |
+| A)    | ![Alternativa A](./assets/questao5/alternativa1.png) | B)    | ![Alternativa A](./assets/questao5/alternativa2.png) |
+| C)    | ![Alternativa A](./assets/questao5/alternativa3.png) | D)    | ![Alternativa A](./assets/questao5/alternativa4.png) |
+| E)    | ![Alternativa A](./assets/questao5/alternativa5.png) |
 
 <details>
   <summary>Resposta e Explicações</summary>
